@@ -50,6 +50,11 @@ function excluirCliente(id) {
 }
 
 document.getElementById("listar").addEventListener("click", () => {
+  // Remove a lista anterior, se existir
+  const listaAnterior = document.querySelector("ul");
+  if (listaAnterior) {
+    listaAnterior.remove();
+  }
   const query = new Parse.Query(Cliente);
   query.find().then((resultados) => {
     const lista = document.createElement("ul");
